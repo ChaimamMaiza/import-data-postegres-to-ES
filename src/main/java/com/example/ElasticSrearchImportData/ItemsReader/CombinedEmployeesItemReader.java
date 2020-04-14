@@ -1,5 +1,6 @@
-package com.example.ElasticSrearchImportData;
+package com.example.ElasticSrearchImportData.ItemsReader;
 
+import com.example.ElasticSrearchImportData.models.Employee;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.AfterStep;
 import org.springframework.batch.core.annotation.BeforeStep;

@@ -1,5 +1,6 @@
-package com.example.ElasticSrearchImportData;
+package com.example.ElasticSrearchImportData.ItemsReader;
 
+import com.example.ElasticSrearchImportData.models.Employee;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -16,6 +17,8 @@ public class FlatEmployeesItemReader extends JdbcCursorItemReader<Employee> {
         this.setSql("select * from employees");
         this.setRowMapper(new EmployeeRowMapper());
         this.setDataSource(dataSource);
+        System.out.println("Tessssssssssssssssst 2222 "+dataSource);
+
     }
 
     private static class EmployeeRowMapper implements RowMapper<Employee> {

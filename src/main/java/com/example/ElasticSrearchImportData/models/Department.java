@@ -1,11 +1,7 @@
-package com.example.ElasticSrearchImportData;
+package com.example.ElasticSrearchImportData.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
-
-import java.util.Date;
-
-import java.util.Objects;
 
 @Document(indexName = "Department", createIndex = false)
 public class Department {

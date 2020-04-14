@@ -1,5 +1,6 @@
-package com.example.ElasticSrearchImportData;
+package com.example.ElasticSrearchImportData.ItemsWriter;
 
+import com.example.ElasticSrearchImportData.models.Employee;
 import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,13 @@ public class EmployeesItemWriter implements ItemWriter<Employee> {
         List<IndexQuery> indexQueries = items.stream()
                 .map(item -> new IndexQueryBuilder().withObject(item).withId(String.valueOf(item.getEmpNo())))
                 .map(builder -> builder.withType("employee"))
-                .map(builder -> builder.withIndexName("employees" + runId))
+                .map(builder -> builder.withIndexName("employees-" + runId))
                 .map(IndexQueryBuilder::build)
                 .collect(Collectors.toList());
-
+        System.out.println("Tessssssssssssssssst "+items);
         this.elasticsearchTemplate.bulkIndex(indexQueries);
     }
+
+
+
 }
